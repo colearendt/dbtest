@@ -8,13 +8,8 @@ services:
       context: ./
       dockerfile: Dockerfile
     links:
-      - sqlite
       - mariadb
       - postgres
-
-  sqlite:
-    hostname: sqlite
-    image: dockerpinata/sqlite
 
   mariadb:
     hostname: mariadb
