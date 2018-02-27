@@ -10,11 +10,84 @@ services:
     links:
       - mariadb
       - postgres
+      - redshift
+      - cloudera
+      - db2
+      - mssql
 
   mariadb:
     hostname: mariadb
     image:  mariadb
+    ports:
+      - 3308:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD: dBp@sW0rD
 
   postgres:
     hostname: postgres
     image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD: dBp@sW0rD
+  
+  redshift:
+    hostname: redshift
+    image: guildeducation/docker-amazon-redshift
+    ports:
+      - 5439:5439
+    environment:
+      - POSTGRES_PASSWORD: dBp@sW0rD
+
+  cloudera:
+    hostname: quickstart.cloudera # required
+    image: cloudera/quickstart
+    ports:
+      - 8888:8888
+      - 7180:7180
+      - 8080:8080
+      - 3306:3306
+    tty: true
+    privileged: true
+    restart: always
+    command: touch /var/lib/cloudera-quickstart/.cloudera-manager && /usr/bin/docker-quickstart #/home/cloudera/cloudera-manager --express
+
+  db2:
+    hostname: db2
+    image: ibmcom/db2express-c
+    ports: 
+      - 50000:50000
+    environment:
+      - DB2INST1_PASSWORD: dBp@sW0rD
+      - LICENSE: accept
+    cmd:
+      - db2start
+
+  mssql:
+    hostname: mssql
+    image: microsoft/mssql-server-linux
+    environment:
+      - ACCEPT_EULA: Y
+      - SA_PASSWORD: dBp@sW0rD
+      - MSSQL_PID: Developer
+    ports:
+      - 1433:1433
+
+#  monetdb:
+#    hostname: monetdb
+#    image: monetdb/monetdb-r-docker
+#    ports:
+#      - 50001:50000
+
+#  mongo:
+#    hostname: mongo
+#    image: mongo
+#    ports:
+#      - 27017:27017
+
+  # access...
+  # oracle...
+  # teradata - no chance... :/
+  # IBM Netizza - probably no chance here either
+  # How do we figure out the ODBC drivers... use pro?
+
