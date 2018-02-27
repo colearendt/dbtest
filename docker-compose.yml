@@ -11,7 +11,7 @@ services:
       - mariadb
       - postgres
       - redshift
-      - cloudera
+      - quickstart.cloudera
       - db2
       - mssql
 
@@ -39,7 +39,7 @@ services:
     environment:
       - POSTGRES_PASSWORD: dBp@sW0rD
 
-  cloudera:
+  quickstart.cloudera:
     hostname: quickstart.cloudera # required
     image: cloudera/quickstart
     ports:
