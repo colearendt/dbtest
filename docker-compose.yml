@@ -10,10 +10,10 @@ services:
     links:
       - mariadb
       - postgres
-      - redshift
       - quickstart.cloudera
       - db2
       - mssql
+      - oracle
 
   mariadb:
     hostname: mariadb
@@ -21,7 +21,7 @@ services:
     ports:
       - 3308:3306
     environment:
-      - MYSQL_ROOT_PASSWORD: dBp@sW0rD
+      - MYSQL_ROOT_PASSWORD=dBp@sW0rD
 
   postgres:
     hostname: postgres
@@ -29,15 +29,7 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_PASSWORD: dBp@sW0rD
-  
-  redshift:
-    hostname: redshift
-    image: guildeducation/docker-amazon-redshift
-    ports:
-      - 5439:5439
-    environment:
-      - POSTGRES_PASSWORD: dBp@sW0rD
+      - POSTGRES_PASSWORD=dBp@sW0rD
 
   quickstart.cloudera:
     hostname: quickstart.cloudera # required
@@ -50,7 +42,7 @@ services:
     tty: true
     privileged: true
     restart: always
-    command: touch /var/lib/cloudera-quickstart/.cloudera-manager && /usr/bin/docker-quickstart #/home/cloudera/cloudera-manager --express
+    command: /usr/bin/docker-quickstart #/home/cloudera/cloudera-manager --express
 
   db2:
     hostname: db2
@@ -58,20 +50,37 @@ services:
     ports: 
       - 50000:50000
     environment:
-      - DB2INST1_PASSWORD: dBp@sW0rD
-      - LICENSE: accept
-    cmd:
+      - DB2INST1_PASSWORD=dBp@sW0rD
+      - LICENSE=accept
+    command:
       - db2start
 
   mssql:
     hostname: mssql
     image: microsoft/mssql-server-linux
     environment:
-      - ACCEPT_EULA: Y
-      - SA_PASSWORD: dBp@sW0rD
-      - MSSQL_PID: Developer
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=dBp@sW0rD
+      - MSSQL_PID=Developer
     ports:
       - 1433:1433
+  
+  oracle:
+    hostname: oracle
+    image: sath89/oracle-12c
+    ports: 
+      #- 8080:8080
+      - 1521:1521
+    environment:
+      - PASS=dBp@sW0rD
+  
+#  redshift:
+#    hostname: redshift
+#    image: guildeducation/docker-amazon-redshift
+#    ports:
+#      - 5439:5439
+#    environment:
+#      - POSTGRES_PASSWORD=dBp@sW0rD
 
 #  monetdb:
 #    hostname: monetdb
