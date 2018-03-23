@@ -1,0 +1,32 @@
+- 'n':
+    mutate: n()
+    filter: n() == 1
+    summarize: n()
+    group_by: n()
+- mean:
+    mutate: mean(fld_double, na.rm = TRUE)
+    filter: mean(fld_double, na.rm = TRUE) > 5
+    summarize: mean(fld_double, na.rm = TRUE)
+    group_by: mean(fld_double, na.rm = TRUE)
+- var:
+    mutate: var(fld_double, na.rm = TRUE)
+    filter: var(fld_double, na.rm = TRUE) > 5
+    summarize: var(fld_double, na.rm = TRUE)
+    group_by: var(fld_double, na.rm = TRUE)
+- sum:
+    mutate: sum(fld_double, na.rm = TRUE)
+    filter: sum(fld_double, na.rm = TRUE) > 5
+    summarize: sum(fld_double, na.rm = TRUE)
+    group_by: sum(fld_double, na.rm = TRUE)
+- min:
+    mutate: min(fld_double, na.rm = TRUE)
+    filter: min(fld_double, na.rm = TRUE) < 5
+    summarize: min(fld_double, na.rm = TRUE)
+    group_by: min(fld_double, na.rm = TRUE)
+- max:
+    mutate: max(fld_double, na.rm = TRUE)
+    filter: max(fld_double, na.rm = TRUE) > 5
+    summarize: max(fld_double, na.rm = TRUE)
+    group_by: max(fld_double, na.rm = TRUE)
+- n_distinct:
+    summarize: n_distinct(fld_double)
