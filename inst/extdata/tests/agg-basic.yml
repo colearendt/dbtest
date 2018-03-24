@@ -31,8 +31,8 @@
 - n_distinct:
     summarize: n_distinct(fld_double)
 - sd:
-    mutate: sd(fld_double)
-    filter: sd(fld_double) < 1
-    summarize: n_distinct(sd(fld_double))
-    group_by: sd(fld_double)
-    arrange: sd(fld_double)
+    mutate: sd(fld_double, na.rm = TRUE)
+    filter: sd(fld_double, na.rm = TRUE) < 1
+    summarize: n_distinct(sd(fld_double, na.rm = TRUE))
+    group_by: sd(fld_double, na.rm = TRUE)
+    arrange: sd(fld_double, na.rm = TRUE)
