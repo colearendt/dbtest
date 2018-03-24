@@ -1,0 +1,114 @@
+- row_number:
+    mutate: row_number(fld_double)
+    filter: row_number(fld_double) > 5
+    summarize: n_distinct(row_number(fld_double))
+    group_by: row_number(fld_double)
+    arrange: row_number(fld_double)
+- row_number_null:
+    mutate: row_number()
+    filter: row_number() > 5
+    summarize: n_distinct(row_number())
+    group_by: row_number()
+    arrange: row_number()
+- min_rank:
+    mutate: min_rank(fld_double)
+    filter: min_rank(fld_double) < 5
+    summarize: n_distinct(min_rank(fld_double))
+    group_by: min_rank(fld_double)
+    arrange: min_rank(fld_double)
+- rank:
+    mutate: rank(fld_double)
+    filter: rank(fld_double) < 5
+    summarize: n_distinct(rank(fld_double))
+    group_by: rank(fld_double)
+    arrange: rank(fld_double)
+- dense_rank:
+    mutate: dense_rank(fld_double)
+    filter: dense_rank(fld_double) < 5
+    summarize: n_distinct(dense_rank(fld_double))
+    group_by: dense_rank(fld_double)
+    arrange: dense_rank(fld_double)
+- percent_rank:
+    mutate: percent_rank(fld_double)
+    filter: percent_rank(fld_double) < 5
+    summarize: n_distinct(percent_rank(fld_double))
+    group_by: percent_rank(fld_double)
+    arrange: percent_rank(fld_double)
+- cume_dist:
+    mutate: cume_dist(fld_double)
+    filter: cume_dist(fld_double) < 0.5
+    summarize: n_distinct(cume_dist(fld_double))
+    group_by: cume_dist(fld_double)
+    arrange: cume_dist(fld_double)
+- ntile_quartile:
+    mutate: ntile(fld_double,4)
+    filter: ntile(fld_double,4) < 2
+    summarize: n_distinct(ntile(fld_double,4))
+    group_by: ntile(fld_double,4)
+    arrange: ntile(fld_double,4)
+- first:
+    mutate: first(fld_double)
+    filter: first(fld_double) < 5
+    summarize: n_distinct(first(fld_double))
+    group_by: first(fld_double)
+    arrange: first(fld_double)
+- last:
+    mutate: last(fld_double)
+    filter: last(fld_double) > 5
+    summarize: n_distinct(last(fld_double))
+    group_by: last(fld_double)
+    arrange: last(fld_double)
+- nth:
+    mutate: nth(fld_double,3)
+    filter: nth(fld_double,3) < 5
+    summarize: n_distinct(nth(fld_double,3))
+    group_by: nth(fld_double,3)
+    arrange: nth(fld_double,3)
+- lead:
+    mutate: lead(fld_double)
+    filter: lead(fld_double) < 5
+    summarize: n_distinct(lead(fld_double))
+    group_by: lead(fld_double)
+    arrange: lead(fld_double)
+- lead_n:
+    mutate: lead(fld_double,3)
+    filter: lead(fld_double,3) < 5
+    summarize: n_distinct(lead(fld_double,3))
+    group_by: lead(fld_double,3)
+    arrange: lead(fld_double,3)
+- lag:
+    mutate: lag(fld_double)
+    filter: lag(fld_double) < 5
+    summarize: n_distinct(lag(fld_double))
+    group_by: lag(fld_double)
+    arrange: lag(fld_double)
+- lag_n:
+    mutate: lag(fld_double,3)
+    filter: lag(fld_double,3) < 5
+    summarize: n_distinct(lag(fld_double,3))
+    group_by: lag(fld_double,3)
+    arrange: lag(fld_double,3)
+- cummean:
+    mutate: cummean(fld_double)
+    filter: cummean(fld_double) < 3
+    summarize: mean(cummean(fld_double))
+    group_by: cummean(fld_double)
+    arrange: cummean(fld_double)
+- cumsum:
+    mutate: cumsum(fld_double)
+    filter: cumsum(fld_double) < 5
+    summarize: sum(cumsum(fld_double))
+    group_by: cumsum(fld_double)
+    arrange: cumsum(fld_double)
+- cummin:
+    mutate: cummin(fld_double)
+    filter: cummin(fld_double) < 5
+    summarize: n_distinct(cummin(fld_double))
+    group_by: cummin(fld_double)
+    arrange: cummin(fld_double)
+- cummax:
+    mutate: cummax(fld_double)
+    filter: cummax(fld_double) < 5
+    summarize: n_distinct(cummax(fld_double))
+    group_by: cummax(fld_double)
+    arrange: cummax(fld_double)
