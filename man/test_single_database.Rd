@@ -19,7 +19,7 @@ A list object with the label and testthat results
 }
 \description{
 Run a single datasource through the testing suite.  Typically, this
-object would be a connection or a `tbl_sql`
+object would be a connection or a tbl_sql
 }
 \examples{
 
