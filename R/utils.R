@@ -132,11 +132,10 @@ new_double_col <- function(numrow = 10, magnitude = 10000) {
 
 new_date_col <- function(numrow = 10) {
   paste(
-    sprintf(sample(1:12, numrow, TRUE), fmt = "%02d")
-    , sprintf(sample(1:28, numrow, TRUE), fmt = "%02d")
-    , sample(1990:2020, numrow, TRUE)
-    ,
-    sep = "/"
+    sample(1990:2020, numrow, TRUE),
+    sprintf(sample(1:12, numrow, TRUE), fmt = "%02d"),
+    sprintf(sample(1:28, numrow, TRUE), fmt = "%02d"),
+    sep = "-"
   )
 }
 
